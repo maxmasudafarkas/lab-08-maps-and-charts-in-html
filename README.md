@@ -61,7 +61,17 @@ We are going to use [Leaflet](https://leafletjs.com/) to map our data, and [C3](
    }).addTo(map);
 
    var mapdata = {};
-   L.geoJSON(mapdata).addTo(map);
+   var colors = d3.interpolate("red", "green");
+   L.geoJSON(mapdata, {
+     style: (feature) => {
+       return {
+         fillColor: colors(feature.properties.scaled_visit_count),
+         weight: 1,
+         color: 'black',
+         fillOpacity: 0.9
+       }
+     }
+   }).addTo(map);
    </script>
    ```
 
@@ -91,13 +101,19 @@ We are going to use [Leaflet](https://leafletjs.com/) to map our data, and [C3](
    var chartdates = [];
    var chartvalues = [];
    var chart = c3.generate({
-       bindto: '#chart',
-       data: {
-         columns: [
-           ['x', chartdates]
-           ['Count', chartvalues]
-         ]
+     bindto: '#chart',
+     data: {
+       x: 'x',
+       columns: [
+         ['x', ...chartdates],
+         ['Count', ...chartvalues]
+       ]
+     },
+     axis: {
+       x: {
+         type: 'timeseries'
        }
+     }
    });
    </script>
    ```
