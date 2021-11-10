@@ -75,6 +75,8 @@ We are going to use [Leaflet](https://leafletjs.com/) to map our data, and [C3](
    </script>
    ```
 
+   > Note that the above uses OpenStreetMap base tiles, but you can use any base tiles you want. For example, the [Stamen](http://maps.stamen.com/) tiles are a popular free alternative. If we have time toward the end of the semester, we may look into creating custom base tiles with [Mapbox](https://mapbox.com/) as well.
+
 1. Add the style sheet for C3 to your page. In your head, add the following element (pulled from the [The cdnjs page for C3](https://cdnjs.com/libraries/c3)):
 
    ```html
@@ -118,6 +120,12 @@ We are going to use [Leaflet](https://leafletjs.com/) to map our data, and [C3](
    </script>
    ```
 
-1. Run the `output_corridor_map_data.py` script to get GeoJSON data that we can put on our map. On the line that says `var mapdata = {};`, replace the `{}` with the data output by the script.
+1. Run the `output_corridor_map_data.py` script to get GeoJSON data that we can put on our map. On the line that says `var mapdata = {};`, replace the `{}` with the data output by the script. _Tip: You can output the data to a file by running:
+
+```bash
+python output_corridor_map_data.py > mapdata.json
+```
+
+The `> mapdata.json` at the end of that line will dump whatever would normally be output to the terminal screen from the `python output_corridor_map_data.py` command into a file named `mapdata.json`
 
 1. Run the `output_corridor_chart_data.py` script to get arrays of values for the chart. On the line in your HTML that says `var chartdates = [];`, replace the `[]` with the first line of data output from the script, and on the line that says `var chartvalues = [];` replace the `[]` with the second line of output from the script.
