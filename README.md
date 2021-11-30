@@ -9,6 +9,9 @@ We are going to use [Leaflet](https://leafletjs.com/) to map our data, and [C3](
    * geopandas
    * pandas-gbq
 
+geopandas install: conda install --channel conda-forge geopandas
+pandas-gbq install: pip install pandas-gbq -U
+
 1. Create an `index.html` file
 
 1. Set up the basic structure of your HTML page. Every HTML document has a **head** and a **body**. Create a file called `index.html` and add the following.
